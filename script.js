@@ -59,20 +59,20 @@ button2.addEventListener("click",()=>{
 dark.addEventListener("click",()=>{
   document.body.style.background="#000000"
   if(variable==true){
-    dark1.classList.add("hide")
+    dark2.classList.add("hide")
     card1.style.background="#000000"
     card1.style.color= "white"
     card1.classList.add("glow")
-    dark2.classList.remove("hide")
+    dark1.classList.remove("hide")
     variable=false
   }
   else{
       document.body.style.background="linear-gradient(to right, #99c5ca, #d198ab)"
-      dark1.classList.remove("hide")
+      dark2.classList.remove("hide")
       card1.style.background="white"
       card1.style.color="black"
       card1.classList.remove("glow")
-      dark2.classList.add("hide")
+      dark1.classList.add("hide")
       variable=true
   }
 })
