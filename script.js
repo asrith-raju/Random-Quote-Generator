@@ -22,6 +22,12 @@ let quotes =  [
 ];
 quotetext = document.querySelector(".quo")
 authortext = document.querySelector(".authorr")
+dark = document.querySelector(".logo")
+dark1=document.querySelector(".sun")
+dark2=document.querySelector(".moon")
+card1=document.querySelector(".card")
+image1= document.querySelector(".image")
+let variable=true
 let randomIndex
 function getrandom(){
  return Math.floor(Math.random()*20)
@@ -30,20 +36,43 @@ function getrandom(){
 let button = document.querySelector(".btn-1")
 let button2 = document.querySelector(".btn-2") 
 button.addEventListener("click",()=>{
-    randomIndex = getrandom(); 
+  randomIndex = getrandom(); 
   quotetext.innerText = quotes[randomIndex].quote;
   authortext.innerText = `---${quotes[randomIndex].author}`;
-
+ 
+  
 }) 
 button2.addEventListener("click",()=>{
- const quote = quotetext.innerText;
+  const quote = quotetext.innerText;
   const author = authortext.innerText;
   const fullMessage = `${quote} ${author}`;
   
+  
   navigator.clipboard.writeText(fullMessage).then(() => {
+     
     alert("Quote copied! paste it where you want.");
   }).catch(err => {
     alert("Could not copy text. Try manually.");
     console.error(err);
   });
+})
+dark.addEventListener("click",()=>{
+  document.body.style.background="#000000"
+  if(variable==true){
+    dark1.classList.add("hide")
+    card1.style.background="#000000"
+    card1.style.color= "white"
+    card1.classList.add("glow")
+    dark2.classList.remove("hide")
+    variable=false
+  }
+  else{
+      document.body.style.background="linear-gradient(to right, #99c5ca, #d198ab)"
+      dark1.classList.remove("hide")
+      card1.style.background="white"
+      card1.style.color="black"
+      card1.classList.remove("glow")
+      dark2.classList.add("hide")
+      variable=true
+  }
 })
